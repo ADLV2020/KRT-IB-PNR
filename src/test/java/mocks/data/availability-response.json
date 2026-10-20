@@ -1,0 +1,11 @@
+{
+  "itineraries": [{
+    "id": "ITIN-001",
+    "segments": [{
+      "flightNumber": "IB0787",
+      "departure": { "airport": "MAD", "datetime": "2026-10-20T10:15:00+02:00" },
+      "arrival":   { "airport": "BER", "datetime": "2026-10-20T12:30:00+02:00" }
+    }],
+    "price": { "amount": 145.50, "currency": "EUR" }
+  }]
+}
