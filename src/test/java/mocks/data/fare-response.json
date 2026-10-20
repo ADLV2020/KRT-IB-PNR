@@ -1,0 +1,10 @@
+{
+  "fareId": "FARE-001",
+  "price": {
+    "amount": 145.50,
+    "currency": "EUR"
+  },
+  "fareBasis": "YLOWES",
+  "cabin": "Y",
+  "bookingClass": "Y"
+}

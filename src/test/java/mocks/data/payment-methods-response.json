@@ -1,0 +1,12 @@
+{
+  "paymentMethods": [
+    {
+      "type": "CREDIT_CARD",
+      "brands": ["VISA", "MASTERCARD", "AMEX"]
+    },
+    {
+      "type": "VOUCHER",
+      "available": true
+    }
+  ]
+}

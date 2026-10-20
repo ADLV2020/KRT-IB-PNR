@@ -1,0 +1,12 @@
+{
+  "disruptionId": "DIS-MOCK-001",
+  "type": "UN",
+  "status": "APPLIED",
+  "appliedAt": "2026-10-12T09:00:00Z",
+  "detail": {
+    "newFlightNumber": "IB0789",
+    "newDepartureDatetime": "2026-10-20T16:45:00+02:00",
+    "reasonCode": "TECHNICAL",
+    "reaccommodationType": "SAME_DAY"
+  }
+}

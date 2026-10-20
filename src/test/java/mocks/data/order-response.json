@@ -1,0 +1,7 @@
+{
+  "orderId": "ORDER-12345",
+  "status": "CREATED",
+  "itineraryId": "ITIN-001",
+  "totalAmount": 145.50,
+  "currency": "EUR"
+}
