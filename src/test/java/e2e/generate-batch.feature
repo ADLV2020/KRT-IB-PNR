@@ -4,6 +4,9 @@ Feature: Generar lote de PNRs con disrupciones
   Background:
     * def utils = read('classpath:common/utils.js')
     * def fixtureBuilder = read('classpath:e2e/build-fixture.js')
+    * def configLoader = read('classpath:e2e/load-batch-config.js')
+    * def batchConfigJson = read('classpath:e2e/data/batch-config.json')
+    * def createPnrPath = (dataSource == 'real') ? 'classpath:pnr/create-pnr-real.feature' : 'classpath:pnr/create-pnr.feature'
 
   # ==================================================================
   # UN - Reacomodo
@@ -11,21 +14,23 @@ Feature: Generar lote de PNRs con disrupciones
   @UN
   Scenario: Generar lote OW Directo con disrupcion UN
     * def count = parseInt(karate.properties['numPnrs'] || '1')
+    * def cfg = configLoader.load('UN', batchConfigJson)
+    * print '[DEBUG] cfg =', cfg
     * def pnrs = []
 
-    * def r1 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'BER', flightDate: '2026-10-20', flightType: 'OW', tripShape: 'DIRECT', lastName: 'TEST' }
+    * def r1 = call read(createPnrPath) cfg
     * def pnrs = karate.append(pnrs, r1.pnrData)
 
-    * def r2 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'BER', flightDate: '2026-10-20', flightType: 'OW', tripShape: 'DIRECT', lastName: 'TEST' }
+    * def r2 = call read(createPnrPath) cfg
     * def pnrs = (count >= 2) ? karate.append(pnrs, r2.pnrData) : pnrs
 
-    * def r3 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'BER', flightDate: '2026-10-20', flightType: 'OW', tripShape: 'DIRECT', lastName: 'TEST' }
+    * def r3 = call read(createPnrPath) cfg
     * def pnrs = (count >= 3) ? karate.append(pnrs, r3.pnrData) : pnrs
 
-    * def r4 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'BER', flightDate: '2026-10-20', flightType: 'OW', tripShape: 'DIRECT', lastName: 'TEST' }
+    * def r4 = call read(createPnrPath) cfg
     * def pnrs = (count >= 4) ? karate.append(pnrs, r4.pnrData) : pnrs
 
-    * def r5 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'BER', flightDate: '2026-10-20', flightType: 'OW', tripShape: 'DIRECT', lastName: 'TEST' }
+    * def r5 = call read(createPnrPath) cfg
     * def pnrs = (count >= 5) ? karate.append(pnrs, r5.pnrData) : pnrs
 
     * def argsDis = { pnrCode: '#(pnrs[0].pnrCode)', segmentId: 'SEG-1' }
@@ -52,21 +57,22 @@ Feature: Generar lote de PNRs con disrupciones
   @UNTK
   Scenario: Generar lote OW Directo con disrupcion UNTK
     * def count = parseInt(karate.properties['numPnrs'] || '1')
+    * def cfg = configLoader.load('UNTK', batchConfigJson)
     * def pnrs = []
 
-    * def r1 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'LIS', flightDate: '2026-10-22', flightType: 'OW', tripShape: 'DIRECT', lastName: 'PEREZ' }
+    * def r1 = call read(createPnrPath) cfg
     * def pnrs = karate.append(pnrs, r1.pnrData)
 
-    * def r2 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'LIS', flightDate: '2026-10-22', flightType: 'OW', tripShape: 'DIRECT', lastName: 'PEREZ' }
+    * def r2 = call read(createPnrPath) cfg
     * def pnrs = (count >= 2) ? karate.append(pnrs, r2.pnrData) : pnrs
 
-    * def r3 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'LIS', flightDate: '2026-10-22', flightType: 'OW', tripShape: 'DIRECT', lastName: 'PEREZ' }
+    * def r3 = call read(createPnrPath) cfg
     * def pnrs = (count >= 3) ? karate.append(pnrs, r3.pnrData) : pnrs
 
-    * def r4 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'LIS', flightDate: '2026-10-22', flightType: 'OW', tripShape: 'DIRECT', lastName: 'PEREZ' }
+    * def r4 = call read(createPnrPath) cfg
     * def pnrs = (count >= 4) ? karate.append(pnrs, r4.pnrData) : pnrs
 
-    * def r5 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'LIS', flightDate: '2026-10-22', flightType: 'OW', tripShape: 'DIRECT', lastName: 'PEREZ' }
+    * def r5 = call read(createPnrPath) cfg
     * def pnrs = (count >= 5) ? karate.append(pnrs, r5.pnrData) : pnrs
 
     * def argsDis = { pnrCode: '#(pnrs[0].pnrCode)', segmentId: 'SEG-1' }
@@ -93,21 +99,22 @@ Feature: Generar lote de PNRs con disrupciones
   @FLCH
   Scenario: Generar lote OW Directo con disrupcion FLCH
     * def count = parseInt(karate.properties['numPnrs'] || '1')
+    * def cfg = configLoader.load('FLCH', batchConfigJson)
     * def pnrs = []
 
-    * def r1 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'CDG', flightDate: '2026-10-18', flightType: 'OW', tripShape: 'DIRECT', lastName: 'LOPEZ' }
+    * def r1 = call read(createPnrPath) cfg
     * def pnrs = karate.append(pnrs, r1.pnrData)
 
-    * def r2 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'CDG', flightDate: '2026-10-18', flightType: 'OW', tripShape: 'DIRECT', lastName: 'LOPEZ' }
+    * def r2 = call read(createPnrPath) cfg
     * def pnrs = (count >= 2) ? karate.append(pnrs, r2.pnrData) : pnrs
 
-    * def r3 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'CDG', flightDate: '2026-10-18', flightType: 'OW', tripShape: 'DIRECT', lastName: 'LOPEZ' }
+    * def r3 = call read(createPnrPath) cfg
     * def pnrs = (count >= 3) ? karate.append(pnrs, r3.pnrData) : pnrs
 
-    * def r4 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'CDG', flightDate: '2026-10-18', flightType: 'OW', tripShape: 'DIRECT', lastName: 'LOPEZ' }
+    * def r4 = call read(createPnrPath) cfg
     * def pnrs = (count >= 4) ? karate.append(pnrs, r4.pnrData) : pnrs
 
-    * def r5 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'CDG', flightDate: '2026-10-18', flightType: 'OW', tripShape: 'DIRECT', lastName: 'LOPEZ' }
+    * def r5 = call read(createPnrPath) cfg
     * def pnrs = (count >= 5) ? karate.append(pnrs, r5.pnrData) : pnrs
 
     * def argsDis = { pnrCode: '#(pnrs[0].pnrCode)', segmentId: 'SEG-1' }
@@ -134,21 +141,22 @@ Feature: Generar lote de PNRs con disrupciones
   @DELAY
   Scenario: Generar lote OW Directo con disrupcion DELAY
     * def count = parseInt(karate.properties['numPnrs'] || '1')
+    * def cfg = configLoader.load('DELAY', batchConfigJson)
     * def pnrs = []
 
-    * def r1 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'LHR', flightDate: '2026-10-19', flightType: 'OW', tripShape: 'DIRECT', lastName: 'RUIZ' }
+    * def r1 = call read(createPnrPath) cfg
     * def pnrs = karate.append(pnrs, r1.pnrData)
 
-    * def r2 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'LHR', flightDate: '2026-10-19', flightType: 'OW', tripShape: 'DIRECT', lastName: 'RUIZ' }
+    * def r2 = call read(createPnrPath) cfg
     * def pnrs = (count >= 2) ? karate.append(pnrs, r2.pnrData) : pnrs
 
-    * def r3 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'LHR', flightDate: '2026-10-19', flightType: 'OW', tripShape: 'DIRECT', lastName: 'RUIZ' }
+    * def r3 = call read(createPnrPath) cfg
     * def pnrs = (count >= 3) ? karate.append(pnrs, r3.pnrData) : pnrs
 
-    * def r4 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'LHR', flightDate: '2026-10-19', flightType: 'OW', tripShape: 'DIRECT', lastName: 'RUIZ' }
+    * def r4 = call read(createPnrPath) cfg
     * def pnrs = (count >= 4) ? karate.append(pnrs, r4.pnrData) : pnrs
 
-    * def r5 = call read('classpath:pnr/create-pnr.feature') { origin: 'MAD', destination: 'LHR', flightDate: '2026-10-19', flightType: 'OW', tripShape: 'DIRECT', lastName: 'RUIZ' }
+    * def r5 = call read(createPnrPath) cfg
     * def pnrs = (count >= 5) ? karate.append(pnrs, r5.pnrData) : pnrs
 
     * def argsDis = { pnrCode: '#(pnrs[0].pnrCode)', segmentId: 'SEG-1' }
@@ -168,3 +176,4 @@ Feature: Generar lote de PNRs con disrupciones
     * def outputPath = 'shared/fixtures/INT_OW_DIRECTO_DELAY.json'
     * utils.writeJson(outputPath, fixture)
     * print '[OK] Fixture DELAY generado con', karate.sizeOf(pnrs), 'PNRs:', outputPath
+    
