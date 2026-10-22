@@ -9,32 +9,34 @@
  * Convención: NO hardcodear URLs ni credenciales.
  * Usar variables de entorno o archivos .env.
  */
+/**
+ * karate-config.js — Configuración global de Karate
+ */
 function fn() {
   var env = karate.env || 'int';
   karate.log('🔧 karate-config.js → entorno:', env);
 
   // ------------------------------------------------------------------
-  // Configuración base (común a todos los entornos)
+  // Configuración base
   // ------------------------------------------------------------------
   var config = {
     env: env,
     mockServer: {
-      enabled: true,          // true: usar mocks; false: llamar servicios reales
+      enabled: true,
       port: 8080,
       baseUrl: 'http://localhost:8080'
     },
     timeouts: {
-      default: 10000,         // 10s para peticiones normales
-      disruption: 30000       // 30s para disrupción (pasa por VPN en real)
+      default: 10000,
+      disruption: 30000
     },
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     },
     vpn: {
-      required: false         // Solo true en INT/PRE con servicios reales
+      required: false
     },
-    // URLs de los servicios reales (solo si mockServer.enabled = false)
     services: {
       authUrl:      'https://int-ibisservices.iberia.com',
       availability: 'https://int-ibisservices.iberia.com',
@@ -53,7 +55,7 @@ function fn() {
   // ------------------------------------------------------------------
   if (env === 'int') {
     config.mockServer.port = 8080;
-    config.vpn.required = true;   // Disrupción en INT requiere VPN
+    config.vpn.required = true;
   } else if (env === 'pre') {
     config.mockServer.port = 8081;
     config.vpn.required = true;
@@ -64,7 +66,7 @@ function fn() {
   }
 
   // ------------------------------------------------------------------
-  // Secrets desde variables de entorno (NUNCA hardcodear)
+  // Secrets
   // ------------------------------------------------------------------
   config.secrets = {
     authUser:     karate.properties['AUTH_USER'] || 'test-user',
@@ -72,6 +74,34 @@ function fn() {
     vaultApiKey:  karate.properties['VAULT_API_KEY'] || 'mock-key'
   };
 
-  karate.log('✅ Configuración cargada:', JSON.stringify(config, null, 2));
+  // ──────────────────────────────────────────────────────────────────
+  // NUEVO: Fuente de datos para creación de PNRs
+  //   - "mock" (default): llama al mock local (7 pasos)
+  //   - "real":            llama al Sistema Inyector (1 paso)
+  // ──────────────────────────────────────────────────────────────────
+  config.dataSource = karate.properties['dataSource'] || 'mock';
+
+  // ──────────────────────────────────────────────────────────────────
+  // NUEVO: Backend real (Sistema Inyector Node.js)
+  // ──────────────────────────────────────────────────────────────────
+  config.realBackend = {
+    enabled: config.dataSource === 'real',
+    baseUrl: karate.properties['realBackend.baseUrl'] || 'http://localhost:3000',
+    // El flujo real hace 7 pasos con delays internos de 1-5s cada uno.
+    // Puede tardar 30-90s por PNR. Damos 2 minutos de margen.
+    connectTimeout: 5000,
+    readTimeout: 120000
+  };
+
+  // ------------------------------------------------------------------
+  // Log de la configuración efectiva
+  // ------------------------------------------------------------------
+  karate.log('📊 dataSource:', config.dataSource);
+  if (config.dataSource === 'real') {
+    karate.log('🚀 realBackend.baseUrl:', config.realBackend.baseUrl);
+    karate.log('⏱️  realBackend.readTimeout:', config.realBackend.readTimeout, 'ms');
+    karate.log('⏱️  realBackend.connectTimeout:', config.realBackend.connectTimeout, 'ms');
+  }
+
   return config;
 }

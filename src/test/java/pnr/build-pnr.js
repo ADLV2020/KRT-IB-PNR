@@ -1,15 +1,20 @@
 
 (function () {
 
-  function build(pnrResponse, fare, flightType, tripShape, lastName, utils) {
+  function build(pnrResponse, fare, flightType, tripShape, lastName, flightNumber, email, phone, utils) {
     var windowInfo = utils.calculateWindow(pnrResponse.departure.datetime);
     var checkIn = utils.calculateCheckInWindow(pnrResponse.departure.datetime, false);
+
+    // Override de flightNumber: si viene del config, se usa; si no, el del mock
+    var finalFlightNumber = flightNumber || pnrResponse.flightNumber;
 
     var passenger = {
       passengerId: 'PAX-1',
       type: 'ADT',
       firstName: 'Juan',
       lastName: lastName,
+      email: email || null,
+      phone: phone || null,
       ticket: {
         ticketNumber: pnrResponse.ticketNumber,
         status: 'ISSUED',
@@ -22,7 +27,7 @@
       segmentId: 'SEG-1',
       tripId: 'TRIP-1',
       segmentOrder: 1,
-      flightNumber: pnrResponse.flightNumber,
+      flightNumber: finalFlightNumber,
       marketingCarrier: 'IB',
       operatingCarrier: 'IB',
       carrierGroup: 'IB_GROUP',
@@ -73,7 +78,7 @@
         segmentId: 'SEG-1',
         tripId: 'TRIP-1',
         pnrCode: pnrResponse.pnr,
-        flightNumber: pnrResponse.flightNumber,
+        flightNumber: finalFlightNumber,
         departureDatetime: pnrResponse.departure.datetime,
         windowType: windowInfo.windowType,
         hoursToDeparture: windowInfo.hoursToDeparture,

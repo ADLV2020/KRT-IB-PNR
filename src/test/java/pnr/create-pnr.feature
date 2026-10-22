@@ -60,5 +60,5 @@ Feature: Crear PNR - flujo completo de compra
     * def pnrResponse = response
 
     # 8. Construir el objeto PNR usando el builder JS
-    * def pnrData = pnrBuilder.build(pnrResponse, fare, flightType, tripShape, lastName, utils)
+    * def pnrData = pnrBuilder.build(pnrResponse, fare, flightType, tripShape, lastName, flightNumber, email, phone, utils)
     * print '[OK] PNR creado:', pnrData.pnrCode

@@ -1,0 +1,50 @@
+{
+  "UN": {
+    "origin": "MAD",
+    "destination": "BER",
+    "flightDate": "2026-10-22",
+    "flightType": "OW",
+    "flightNumber": "0787",
+    "tripShape": "DIRECT",
+    "lastName": "TEST",
+    "firstName": "AUTOMATION",
+    "email": "test.un@example.com",
+    "phone": "600200100"
+  },
+  "UNTK": {
+    "origin": "MAD",
+    "destination": "BER",
+    "flightDate": "2026-10-22",
+    "flightType": "OW",
+    "flightNumber": "0787",
+    "tripShape": "DIRECT",
+    "lastName": "TEST",
+    "firstName": "AUTOMATION",
+    "email": "test.untk@example.com",
+    "phone": "600200100"
+  },
+  "FLCH": {
+    "origin": "MAD",
+    "destination": "BER",
+    "flightDate": "2026-10-22",
+    "flightType": "OW",
+    "flightNumber": "0787",
+    "tripShape": "DIRECT",
+    "lastName": "TEST",
+    "firstName": "AUTOMATION",
+    "email": "test.flch@example.com",
+    "phone": "600200100"
+  },
+  "DELAY": {
+    "origin": "MAD",
+    "destination": "BER",
+    "flightDate": "2026-10-22",
+    "flightType": "OW",
+    "flightNumber": "0787",
+    "tripShape": "DIRECT",
+    "lastName": "TEST",
+    "firstName": "AUTOMATION",
+    "email": "test.delay@example.com",
+    "phone": "600200100"
+  }
+}
