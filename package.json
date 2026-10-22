@@ -1,0 +1,44 @@
+{
+
+  "name": "airline-disruption-karate",
+  "version": "1.0.0",
+  "description": "Karate Framework para generación de PNRs y disrupciones",
+  "main": "index.js",
+
+  "scripts": {
+    "test":             "mvn test",
+    "test:un":          "mvn clean test \"-Dkarate.options=--tags @UN\" -Dtest=TestRunner",
+    "test:un:1":        "mvn clean test \"-Dkarate.options=--tags @UN\" -Dtest=TestRunner -DnumPnrs=1",
+    "test:un:3":        "mvn clean test \"-Dkarate.options=--tags @UN\" -Dtest=TestRunner -DnumPnrs=3",
+    "test:un:5":        "mvn clean test \"-Dkarate.options=--tags @UN\" -Dtest=TestRunner -DnumPnrs=5",
+    "test:untk":        "mvn clean test \"-Dkarate.options=--tags @UNTK\" -Dtest=TestRunner",
+    "test:flch":        "mvn clean test \"-Dkarate.options=--tags @FLCH\" -Dtest=TestRunner",
+    "test:delay":       "mvn clean test \"-Dkarate.options=--tags @DELAY\" -Dtest=TestRunner",
+    "test:all":         "mvn clean test -Dtest=TestRunner",
+    "test:un:real":    "mvn clean test \"-Dkarate.options=--tags @UN\" -Dtest=TestRunner -DdataSource=real",
+    "test:untk:real":  "mvn clean test \"-Dkarate.options=--tags @UNTK\" -Dtest=TestRunner -DdataSource=real",
+    "test:flch:real":  "mvn clean test \"-Dkarate.options=--tags @FLCH\" -Dtest=TestRunner -DdataSource=real",
+    "test:delay:real": "mvn clean test \"-Dkarate.options=--tags @DELAY\" -Dtest=TestRunner -DdataSource=real",
+    "test:real:all":   "mvn clean test -Dtest=TestRunner -DdataSource=real",
+    "test:parallel":    "mvn clean test -Dkarate.env=int -Dkarate.options=\"--threads 4\"",
+    "generate:schema":  "ts-node scripts/generate-schema.ts",
+    "append:fixture":   "ts-node scripts/append-fixture.ts",
+    "cleanup:fixtures": "ts-node scripts/cleanup-fixtures.ts",
+    "typecheck":        "tsc --noEmit"
+  },
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+
+  "devDependencies": {
+    "@karatelabs/karate": "^0.3.2",
+    "@types/node": "^22.0.0",
+    "ajv": "^8.20.0",
+    "ts-json-schema-generator": "^2.9.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.0"
+  }
+
+}

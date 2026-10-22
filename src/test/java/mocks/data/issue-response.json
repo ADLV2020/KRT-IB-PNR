@@ -1,0 +1,26 @@
+{
+  "pnr": "NNGND",
+  "status": "ISSUED",
+  "departure": {
+    "airportCode": "MAD",
+    "airportName": "Adolfo Suárez Madrid-Barajas",
+    "datetime": "2026-10-20T10:15:00+02:00",
+    "timezone": "Europe/Madrid"
+  },
+  "arrival": {
+    "airportCode": "BER",
+    "airportName": "Berlin Brandenburg",
+    "datetime": "2026-10-20T12:30:00+02:00",
+    "timezone": "Europe/Berlin"
+  },
+  "flightNumber": "IB0787",
+  "flightDate": "2026-10-20",
+  "ticketNumber": "07385246985172",
+  "passenger": {
+    "firstName": "Juan",
+    "lastName": "Pérez",
+    "type": "ADT"
+  },
+  "segmentCount": 1,
+  "flightType": "OW"
+}

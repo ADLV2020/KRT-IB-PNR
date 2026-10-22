@@ -1,0 +1,23 @@
+{
+  "MAD": { "airportName": "Adolfo Suárez Madrid-Barajas", "cityCode": "MAD", "cityName": "Madrid",     "country": "ES", "timezone": "Europe/Madrid",    "summerOffset": "+02:00" },
+  "BCN": { "airportName": "Josep Tarradellas Barcelona-El Prat", "cityCode": "BCN", "cityName": "Barcelona", "country": "ES", "timezone": "Europe/Madrid", "summerOffset": "+02:00" },
+  "LIS": { "airportName": "Humberto Delgado",   "cityCode": "LIS", "cityName": "Lisboa",     "country": "PT", "timezone": "Europe/Lisbon",     "summerOffset": "+01:00" },
+  "FCO": { "airportName": "Leonardo da Vinci–Fiumicino", "cityCode": "ROM", "cityName": "Roma",  "country": "IT", "timezone": "Europe/Rome",     "summerOffset": "+02:00" },
+  "CDG": { "airportName": "Charles de Gaulle", "cityCode": "PAR", "cityName": "París",        "country": "FR", "timezone": "Europe/Paris",     "summerOffset": "+02:00" },
+  "AMS": { "airportName": "Schiphol",          "cityCode": "AMS", "cityName": "Ámsterdam",    "country": "NL", "timezone": "Europe/Amsterdam", "summerOffset": "+02:00" },
+  "LHR": { "airportName": "Heathrow",          "cityCode": "LON", "cityName": "Londres",      "country": "GB", "timezone": "Europe/London",    "summerOffset": "+01:00" },
+  "BER": { "airportName": "Berlin Brandenburg","cityCode": "BER", "cityName": "Berlín",       "country": "DE", "timezone": "Europe/Berlin",    "summerOffset": "+02:00" },
+  "MUC": { "airportName": "Franz Josef Strauss","cityCode": "MUC","cityName": "Múnich",       "country": "DE", "timezone": "Europe/Berlin",    "summerOffset": "+02:00" },
+  "FRA": { "airportName": "Frankfurt am Main", "cityCode": "FRA", "cityName": "Fráncfort",    "country": "DE", "timezone": "Europe/Berlin",    "summerOffset": "+02:00" },
+  "VIE": { "airportName": "Vienna International","cityCode": "VIE","cityName": "Viena",       "country": "AT", "timezone": "Europe/Vienna",    "summerOffset": "+02:00" },
+  "ZRH": { "airportName": "Zurich",            "cityCode": "ZRH", "cityName": "Zúrich",       "country": "CH", "timezone": "Europe/Zurich",    "summerOffset": "+02:00" },
+  "BRU": { "airportName": "Brussels",          "cityCode": "BRU", "cityName": "Bruselas",     "country": "BE", "timezone": "Europe/Brussels",  "summerOffset": "+02:00" },
+  "DUB": { "airportName": "Dublin",            "cityCode": "DUB", "cityName": "Dublín",       "country": "IE", "timezone": "Europe/Dublin",    "summerOffset": "+01:00" },
+  "OPO": { "airportName": "Francisco Sá Carneiro","cityCode": "OPO","cityName": "Oporto",    "country": "PT", "timezone": "Europe/Lisbon",    "summerOffset": "+01:00" },
+  "ATH": { "airportName": "Eleftherios Venizelos","cityCode": "ATH","cityName": "Atenas",    "country": "GR", "timezone": "Europe/Athens",    "summerOffset": "+03:00" },
+  "IST": { "airportName": "Istanbul",          "cityCode": "IST", "cityName": "Estambul",     "country": "TR", "timezone": "Europe/Istanbul",  "summerOffset": "+03:00" },
+  "JFK": { "airportName": "John F. Kennedy",   "cityCode": "NYC", "cityName": "Nueva York",   "country": "US", "timezone": "America/New_York","summerOffset": "-04:00" },
+  "EZE": { "airportName": "Ministro Pistarini","cityCode": "BUE", "cityName": "Buenos Aires", "country": "AR", "timezone": "America/Argentina/Buenos_Aires", "summerOffset": "-03:00" },
+  "GRU": { "airportName": "Guarulhos",         "cityCode": "SAO", "cityName": "São Paulo",    "country": "BR", "timezone": "America/Sao_Paulo","summerOffset": "-03:00" },
+  "MEX": { "airportName": "Benito Juárez",     "cityCode": "MEX", "cityName": "Ciudad de México","country": "MX","timezone": "America/Mexico_City","summerOffset": "-06:00" }
+}

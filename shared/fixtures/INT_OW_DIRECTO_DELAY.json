@@ -1,0 +1,146 @@
+{
+  "$schema": "./pnr-fixture.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-10-19T12:51:11.843Z",
+  "generator": {
+    "name": "karate-disruption-generator",
+    "version": "1.0.0",
+    "environment": "INT",
+    "locale": "es",
+    "vpn": {
+      "used": false
+    }
+  },
+  "filters": [
+    {
+      "shape": "OW_DIRECTO",
+      "disruptionType": "DELAY"
+    }
+  ],
+  "stats": {
+    "totalPnrs": 1,
+    "totalPassengers": 1,
+    "totalSegments": 1,
+    "byFlightType": {
+      "OW": 1,
+      "RT": 0
+    },
+    "byDisruptionType": {},
+    "byWindow": {
+      "VC": 0,
+      "VO": 1
+    }
+  },
+  "pnrs": [
+    {
+      "pnrCode": "4PH3K",
+      "createdAt": "2026-10-19T12:51:11.586Z",
+      "createdAtEnv": "INT",
+      "flightType": "OW",
+      "tripShape": "DIRECT",
+      "passengerCount": 1,
+      "segmentCount": 1,
+      "passengers": [
+        {
+          "passengerId": "PAX-1",
+          "type": "ADT",
+          "firstName": "Juan",
+          "lastName": "RUIZ",
+          "ticket": {
+            "ticketNumber": "0757488710417",
+            "status": "ISSUED",
+            "issuedAt": "2026-10-19T12:51:11.586Z"
+          },
+          "isCheckedIn": false
+        }
+      ],
+      "trips": [
+        {
+          "tripId": "TRIP-1",
+          "direction": "OUTBOUND",
+          "shape": "DIRECT",
+          "segments": [
+            {
+              "segmentId": "SEG-1",
+              "tripId": "TRIP-1",
+              "segmentOrder": 1,
+              "flightNumber": "IB0787",
+              "marketingCarrier": "IB",
+              "operatingCarrier": "IB",
+              "carrierGroup": "IB_GROUP",
+              "isCodeshare": false,
+              "isOtherGroupAirline": true,
+              "departure": {
+                "airportCode": "MAD",
+                "airportName": "Adolfo Suárez Madrid-Barajas",
+                "datetime": "2026-10-20T10:15:00+02:00",
+                "timezone": "Europe/Madrid"
+              },
+              "arrival": {
+                "airportCode": "BER",
+                "airportName": "Berlin Brandenburg",
+                "datetime": "2026-10-20T12:30:00+02:00",
+                "timezone": "Europe/Berlin"
+              },
+              "status": "SCHEDULED",
+              "lifecycleState": "FREE",
+              "windowType": "VO",
+              "hoursToDeparture": 19.4,
+              "isFlown": false,
+              "isCheckedIn": false,
+              "checkIn": {
+                "isEligible": true,
+                "isInternational": false,
+                "windowHours": 24,
+                "opensAt": "2026-10-19T08:15:00.000Z",
+                "closesAt": "2026-10-20T08:15:00.000Z"
+              },
+              "mock": {
+                "int": {
+                  "applied": false
+                },
+                "pre": {
+                  "applied": false
+                }
+              },
+              "disruption": {
+                "status": "OK",
+                "eventType": "DELAY",
+                "delayMinutes": 120
+              }
+            }
+          ]
+        }
+      ],
+      "payment": {
+        "method": "CARD",
+        "currency": "EUR",
+        "totalAmount": 145.5
+      },
+      "addOns": [],
+      "isCheckedIn": false,
+      "hasDisruption": true,
+      "disruptionTypes": [
+        "DELAY"
+      ],
+      "mockedIn": [],
+      "isFullyFlown": false,
+      "_flatSegments": [
+        {
+          "segmentId": "SEG-1",
+          "tripId": "TRIP-1",
+          "pnrCode": "4PH3K",
+          "flightNumber": "IB0787",
+          "departureDatetime": "2026-10-20T10:15:00+02:00",
+          "windowType": "VO",
+          "hoursToDeparture": 19.4,
+          "isCheckedIn": false,
+          "isFlown": false,
+          "lifecycleState": "FREE",
+          "disruptionType": null,
+          "mockedIn": []
+        }
+      ]
+    }
+  ]
+}

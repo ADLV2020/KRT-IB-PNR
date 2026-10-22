@@ -1,0 +1,12 @@
+{
+  "status": "CHECKED",
+  "message": "Check-in realizado con éxito",
+  "checkedInAt": "2026-10-13T10:00:00Z",
+  "boardingPasses": [
+    {
+      "passengerId": "PAX-1",
+      "segmentId": "SEG-1",
+      "seat": "14A"
+    }
+  ]
+}
